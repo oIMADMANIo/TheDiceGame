@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <title>--- The Game ---</title>
+</head>
+
+<body>
+    
+    <div class="wrapper clearfix">
+        <!-- <div class="blur"></div> -->
+        <div class="player-0-panel stars-0 active">
+            <div class="player-name" id="name-0">Player 1</div>
+            <div class="player-score" id="score-0">0</div>
+            <div class="player-current-box-0">
+                <div class="player-current-label">round score</div>
+                <div class="player-current-score" id="current-0">11</div>
+            </div>
+        </div>
+        <div class="player-1-panel stars-1">
+            <div class="player-name" id="name-1">Player 2</div>
+            <div class="player-score" id="score-1">0</div>
+            <div class="player-current-box-1">
+                <div class="player-current-label">round score</div>
+                <div class="player-current-score" id="current-1">0</div>
+            </div>
+        </div>
+        <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
+        <img src="images/dice-5.png" alt="Dice" class="dice">
+        <img src="images/dice-5.png" alt="Dice" class="second_dice">
+        <button class="btn-roll"><i class="ion-ios-loop"></i>Rollin'</button>
+        <button class="btn-hold"><i class="ion-ios-download-outline"></i>Savin'</button>
+        <p class="final-score-desc">enter the final score</p>
+        <input type="text" placeholder="..." class="final-score">
+
+    </div>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/antigravity.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,363 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+
+.final-score {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 530px;
+    text-transform: uppercase;
+    color: rgb(85, 85, 85);
+    font-size: 18px;
+    width: 160px;
+    height: 35px;
+    font-family: 'Lato';
+    text-align: center;
+    border: 1px solid #999;
+}
+
+.final-score:focus {
+    outline: none;
+}
+
+.final-score-desc {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 515px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgb(235, 77, 77);
+    font-size: 9px;
+    width: 160px;
+    height: 35px;
+    font-weight: 400;
+    font-family: 'Lato';
+    text-align: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    background-image: linear-gradient(rgba(62, 20, 20, 0.2), rgba(62, 20, 20, 0.5)), url(/images/back.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: Lato;
+    font-weight: 300;
+    position: relative;
+    height: 100vh;
+    color: rgb(85, 85, 85);
+    overflow: hidden;
+}
+
+.wrapper {
+    width: 1000px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.90);
+    box-shadow: 0px 5px 45px rgba(62, 20, 20, 0.8);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.player-0-panel,
+.player-1-panel {
+    width: 50%;
+    float: left;
+    height: 600px;
+    padding: 100px;
+}
+
+/**********************************************
+*** PLAYERS
+**********************************************/
+
+.player-name {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 98;
+}
+
+.player-score {
+    text-align: center;
+    font-size: 80px;
+    font-weight: 300;
+    color: rgb(235, 77, 77);
+    margin-bottom: 130px;
+    z-index: 98;
+}
+
+.active {
+    _background-color: rgba(44, 62, 80, .2);
+    box-shadow: inset 0px 0px 160px 40px rgba(62, 20, 20, .1);
+    _transition: 5s;
+}
+
+.active .player-name {
+    font-weight: 600;
+}
+
+.active .player-name::after {
+    content: "\2660";
+    font-size: 695px;
+    position: absolute;
+    color: rgba(235, 77, 77, .15);
+    top: -330px;
+    right: -38px;
+    z-index: -1;
+}
+
+.player-current-box-0,
+.player-current-box-1 {
+    background-color: #EB4D4D;
+    color: #fff;
+    width: 40%;
+    margin: 0 auto;
+    padding: 12px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px 0px rgba(62, 20, 20, 0.55);
+}
+
+.player-current-label {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #222;
+}
+
+.player-current-score {
+    font-size: 30px;
+}
+
+button {
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(85, 85, 85);
+    background: none;
+    border: none;
+    font-family: Lato;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    font-weight: 600;
+}
+
+button:hover i {
+    margin-right: 20px;
+}
+
+button:focus {
+    outline: none;
+}
+
+i {
+    color: #EB4D4D;
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 32px;
+    line-height: 1;
+    vertical-align: text-top;
+    margin-top: -4px;
+    transition: margin 0.3s;
+}
+
+.btn-new {
+    top: 45px;
+}
+
+.btn-roll {
+    top: 410px;
+}
+
+.btn-hold {
+    top: 460px;
+}
+
+.dice,
+.second_dice {
+    position: absolute;
+    left: 44.25%;
+    top: 120px;
+    height: 90px;
+    width: 90px;
+    margin: 10px;
+    border-radius: 14px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.second_dice {
+    top: 265px;
+}
+
+.winner {
+    background-color: rgba(113, 186, 81, 0.35);
+    box-shadow: inset 0px 0px 180px 120px rgba(0, 230, 64, .15);
+}
+
+.winner .player-name {
+    font-weight: 600;
+    color: rgb(235, 77, 77);
+}
+
+.stars-0,
+.stars-1 {
+    background-image: url(/images/stars.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 35%;
+    background-size: .1% .1%;
+    transition: .3s;
+}
+
+/* SPINNING DICE */
+
+.spinningDiceRight {
+    animation-name: spinRight;
+    animation-duration: 215ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: rotate(3deg);
+    transform: rotate(0.3rad);
+    transform: rotate(3grad);
+    transform: rotate(.03turn);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.spinningDiceLeft {
+    animation-name: spinLeft;
+    animation-duration: 215ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: rotate(3deg);
+    transform: rotate(0.3rad);
+    transform: rotate(3grad);
+    transform: rotate(.03turn);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+@keyframes spinRight {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinLeft {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+svg {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    transform: translateZ(0px);
+    z-index: -1;
+}
+.set-player-name {
+    z-index:101;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: solid 1px rgb(187, 187, 187);
+    width: 500px;
+    height: 250px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    top: 60px;
+    padding: 50px;
+    box-shadow: inset 0px 0px 160px 20px rgba(206, 206, 206, 0.19), 
+        0px 2px 10px -4px rgba(80, 80, 80, 0.86);
+}
+
+.askPlayer {
+    text-transform: uppercase;
+    user-select: none;
+}
+.set-player-name button {
+    top: 135px;
+    height: 35px;
+    width: 260px;
+    background-color: rgba(235, 77, 77, 0.65);
+    border-radius: 5px;
+    transition: .1s;
+    color: rgb(255, 255, 255);
+}
+
+.set-player-name button:hover{
+    font-weight:400;
+    background-color: rgba(235, 77, 77,1);
+    box-shadow: inset 0px 0px 10px 10px rgba(235, 50, 50, 0.9), 
+        0px 2px 5px -2px rgba(80, 80, 80, 0.75);
+}
+
+.player-name-input {
+    margin: 20px 0px 0px 0px;
+    text-transform: uppercase;
+    color: rgb(85, 85, 85);
+    font-size: 18px;
+    width: 260px;
+    height: 35px;
+    font-family: 'Lato';
+    text-align: center;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+.player-name-input:focus{
+    outline: none;
+}
+
+.blur {
+    width: 1000px;
+    height:600px;
+    position: absolute;
+    z-index:99;
+    border-radius: 10px;
+    background-color: rgba(44, 62, 80, .85);
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
