@@ -50,7 +50,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(62, 20, 20, 0.2), rgba(62, 20, 20, 0.5)), url(/images/back.jpg);
+    background-image: linear-gradient(rgba(62, 20, 20, 0.2), rgba(62, 20, 20, 0.5)), url(../images/back.jpg);
     background-size: cover;
     background-position: center;
     font-family: Lato;
@@ -107,9 +107,7 @@ body {
 }
 
 .active {
-    _background-color: rgba(44, 62, 80, .2);
     box-shadow: inset 0px 0px 160px 40px rgba(62, 20, 20, .1);
-    _transition: 5s;
 }
 
 .active .player-name {
